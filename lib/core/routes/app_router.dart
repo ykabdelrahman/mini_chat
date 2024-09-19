@@ -2,7 +2,8 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/signup/signup_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
-import '../../features/splash/presentation/views/splash_view.dart';
+import '../../features/onboarding/presentation/views/onboarding_view.dart';
+import '../../features/onboarding/presentation/views/splash_view.dart';
 import '../func/transition_page.dart';
 import 'routes.dart';
 
@@ -12,6 +13,14 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: Routes.onboarding,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const OnboardingView(),
+        ),
       ),
       GoRoute(
         path: Routes.loginView,
