@@ -13,7 +13,7 @@ class OnboardingView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
           child: Column(
             children: [
               const Spacer(),

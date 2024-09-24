@@ -18,6 +18,7 @@ class CustomTextFormField extends StatelessWidget {
     this.hintFontWeight,
     this.hintFontSize,
     this.isLastInput = false,
+    this.keyboardType,
   });
   final String? hint;
   final bool? hideText;
@@ -33,6 +34,7 @@ class CustomTextFormField extends StatelessWidget {
   final FontWeight? hintFontWeight;
   final double? hintFontSize;
   final bool isLastInput;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: ColorsManager.mainBlue,
       style: textStyle,
       textAlignVertical: TextAlignVertical.center,
+      keyboardType: keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
         fillColor: bgColor ?? Colors.white,
         filled: true,
