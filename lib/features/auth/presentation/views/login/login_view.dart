@@ -23,7 +23,7 @@ class LoginView extends StatelessWidget {
                   width: 150,
                   height: 150,
                 ),
-                const SizedBox(height: 36),
+                const SizedBox(height: 18),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
