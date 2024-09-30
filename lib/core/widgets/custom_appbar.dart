@@ -17,14 +17,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title!,
-        style: Styles.textStyle20.copyWith(color: ColorsManager.mainBlue),
+        style: Styles.textStyle20.copyWith(color: ColorsManager.mainGreen),
       ),
       centerTitle: true,
       leading: InkWell(
         onTap: () => context.pop(),
         child: const Icon(
           Icons.arrow_back_rounded,
-          color: ColorsManager.mainBlue,
+          color: ColorsManager.mainGreen,
         ),
       ),
       elevation: 0,

@@ -44,7 +44,7 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       validator: validator,
       obscureText: hideText ?? false,
-      cursorColor: ColorsManager.mainBlue,
+      cursorColor: ColorsManager.mainGreen,
       style: textStyle,
       textAlignVertical: TextAlignVertical.center,
       keyboardType: keyboardType ?? TextInputType.text,
@@ -75,7 +75,7 @@ class CustomTextFormField extends StatelessWidget {
     return OutlineInputBorder(
       borderSide: borderSide ??
           const BorderSide(
-            color: ColorsManager.mainBlue,
+            color: ColorsManager.mainGreen,
             width: 2,
           ),
       borderRadius: BorderRadius.circular(radius ?? 10),

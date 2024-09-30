@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mini_chat/core/themes/colors_manager.dart';
 import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/assets.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,15 +19,12 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text(
-          'MINI CHAT',
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: ColorsManager.mainBlue,
-          ),
+        child: Image.asset(
+          AssetsData.logo,
+          height: 254,
+          width: 232,
         ),
       ),
     );

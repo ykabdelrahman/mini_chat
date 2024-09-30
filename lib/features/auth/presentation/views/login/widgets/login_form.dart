@@ -40,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
               },
               child: Icon(
                 isObscureText ? Icons.visibility_off : Icons.visibility,
-                color: ColorsManager.mainBlue,
+                color: ColorsManager.mainGreen,
               ),
             ),
             validator: validatePassword,
@@ -51,7 +51,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Text(
               'Forgot Password?',
               style: Styles.textStyle12.copyWith(
-                color: ColorsManager.mainBlue,
+                color: ColorsManager.mainGreen,
               ),
             ),
           ),

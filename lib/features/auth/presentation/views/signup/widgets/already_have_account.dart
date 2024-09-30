@@ -22,7 +22,7 @@ class AlreadyHaveAccount extends StatelessWidget {
           TextSpan(
             text: ' Login',
             style: Styles.textStyle14.copyWith(
-              color: ColorsManager.mainBlue,
+              color: ColorsManager.mainGreen,
               fontWeight: FontWeight.w700,
             ),
             recognizer: TapGestureRecognizer()

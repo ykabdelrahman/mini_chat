@@ -19,7 +19,7 @@ class LoginView extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  AssetsData.onboardingLogo,
+                  AssetsData.logo,
                   width: 150,
                   height: 150,
                 ),
@@ -29,7 +29,7 @@ class LoginView extends StatelessWidget {
                   child: Text(
                     'Login to your account',
                     style: Styles.textStyle18.copyWith(
-                      color: ColorsManager.mainBlue,
+                      color: ColorsManager.mainGreen,
                     ),
                   ),
                 ),

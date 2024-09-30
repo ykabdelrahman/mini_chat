@@ -23,7 +23,7 @@ class DontHaveAccount extends StatelessWidget {
           TextSpan(
             text: ' Sign Up',
             style: Styles.textStyle14.copyWith(
-              color: ColorsManager.mainBlue,
+              color: ColorsManager.mainGreen,
               fontWeight: FontWeight.w700,
             ),
             recognizer: TapGestureRecognizer()

@@ -25,6 +25,8 @@ class OnboardingView extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
+              const Text('Terms & Privacy Policy'),
+              const SizedBox(height: 18),
               CustomButton(
                 text: 'Start Messaging',
                 onTap: () => context.go(Routes.loginView),
