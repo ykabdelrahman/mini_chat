@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../../../../core/func/validation.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mini_chat/core/func/validation.dart';
+import '../../../../../../core/routes/routes.dart';
 import '../../../../../../core/themes/colors_manager.dart';
 import '../../../../../../core/themes/styles.dart';
+import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../core/widgets/custom_text_form_field.dart';
 
 class LoginForm extends StatefulWidget {
@@ -25,13 +28,23 @@ class _LoginFormState extends State<LoginForm> {
           CustomTextFormField(
             controller: emailController,
             hint: 'Email',
+            prefixIcon: const Icon(
+              Icons.email_outlined,
+              color: ColorsManager.mainGreen,
+            ),
             validator: validateEmail,
           ),
           const SizedBox(height: 18),
           CustomTextFormField(
             controller: passwordController,
             hint: 'Password',
+            validator: validatePassword,
             hideText: isObscureText,
+            isLastInput: true,
+            prefixIcon: const Icon(
+              Icons.lock_outlined,
+              color: ColorsManager.mainGreen,
+            ),
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -43,7 +56,6 @@ class _LoginFormState extends State<LoginForm> {
                 color: ColorsManager.mainGreen,
               ),
             ),
-            validator: validatePassword,
           ),
           const SizedBox(height: 16),
           Align(
@@ -54,6 +66,15 @@ class _LoginFormState extends State<LoginForm> {
                 color: ColorsManager.mainGreen,
               ),
             ),
+          ),
+          const SizedBox(height: 50),
+          CustomButton(
+            text: "Login",
+            onTap: () {
+              if (_key.currentState!.validate()) {
+                context.go(Routes.homeView);
+              }
+            },
           ),
         ],
       ),

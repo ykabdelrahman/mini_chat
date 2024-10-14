@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/widgets/custom_button.dart';
 import 'widgets/dont_have_account.dart';
 import 'widgets/login_form.dart';
 
@@ -20,7 +19,7 @@ class LoginView extends StatelessWidget {
               children: [
                 Image.asset(
                   AssetsData.logo,
-                  width: 150,
+                  width: 300,
                   height: 150,
                 ),
                 const SizedBox(height: 18),
@@ -28,18 +27,13 @@ class LoginView extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Login to your account',
-                    style: Styles.textStyle18.copyWith(
+                    style: Styles.textStyle20.copyWith(
                       color: ColorsManager.mainGreen,
                     ),
                   ),
                 ),
                 const SizedBox(height: 26),
                 const LoginForm(),
-                const SizedBox(height: 50),
-                CustomButton(
-                  text: "Login",
-                  onTap: () {},
-                ),
                 const SizedBox(height: 26),
                 const DontHaveAccount(),
               ],

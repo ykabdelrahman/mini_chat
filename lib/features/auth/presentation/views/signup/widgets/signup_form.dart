@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../../core/func/validation.dart';
 import '../../../../../../core/themes/colors_manager.dart';
+import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../core/widgets/custom_text_form_field.dart';
 
 class SignupForm extends StatefulWidget {
@@ -25,7 +27,7 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         children: [
           CustomTextFormField(
-            controller: emailController,
+            controller: usernameController,
             hint: 'Username',
             validator: validateUsername,
           ),
@@ -65,6 +67,7 @@ class _SignupFormState extends State<SignupForm> {
           CustomTextFormField(
             hint: 'Confirm Pasword',
             hideText: isPasswordConfirmationObscureText,
+            isLastInput: true,
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -84,6 +87,15 @@ class _SignupFormState extends State<SignupForm> {
                 return 'Passwords do not match';
               }
               return null;
+            },
+          ),
+          const SizedBox(height: 40),
+          CustomButton(
+            text: "Sign Up",
+            onTap: () {
+              if (_key.currentState!.validate()) {
+                context.pop();
+              }
             },
           ),
         ],
