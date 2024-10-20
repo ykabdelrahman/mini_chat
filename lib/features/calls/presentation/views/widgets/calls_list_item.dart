@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mini_chat/core/themes/styles.dart';
 import '../../../../../core/themes/colors_manager.dart';
+import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/assets.dart';
 
-class ChatListItem extends StatelessWidget {
-  const ChatListItem({super.key});
+class CallsListItem extends StatelessWidget {
+  const CallsListItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ChatListItem extends StatelessWidget {
         child: Row(
           children: [
             const CircleAvatar(
-              radius: 30,
+              radius: 25,
               backgroundImage: AssetImage(AssetsData.logo),
             ),
             const SizedBox(width: 16),
@@ -31,7 +31,7 @@ class ChatListItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  'hi how u doing today?',
+                  'September 10, 7:30 PM',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
                     color: ColorsManager.textGrey.withOpacity(.5),
@@ -41,28 +41,12 @@ class ChatListItem extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            Column(
-              children: [
-                Text(
-                  '11:30',
-                  style: Styles.textStyle14.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withOpacity(.5),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                const CircleAvatar(
-                  radius: 12,
-                  backgroundColor: ColorsManager.mainGreen,
-                  child: Center(
-                    child: Text(
-                      '2',
-                      maxLines: 1,
-                      style: TextStyle(color: Colors.white, fontSize: 12),
-                    ),
-                  ),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {},
+              child: Icon(
+                Icons.call,
+                color: ColorsManager.textGrey.withOpacity(.6),
+              ),
             ),
           ],
         ),
