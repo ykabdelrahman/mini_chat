@@ -55,8 +55,8 @@ String? validatePassword(String? value) {
   RegExp regex = RegExp(pattern);
   if (!regex.hasMatch(value)) {
     return '''
-      Password must be at least 8 characters,
-      include an uppercase letter, number and symbol.
+Password must be at least 8 characters,
+include an uppercase letter, number and symbol.
       ''';
   }
   return null;
