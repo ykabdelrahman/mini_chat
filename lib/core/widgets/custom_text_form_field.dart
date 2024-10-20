@@ -14,7 +14,6 @@ class CustomTextFormField extends StatelessWidget {
     this.radius,
     this.contentPadding,
     this.bgColor,
-    this.borderSide,
     this.hintFontWeight,
     this.hintFontSize,
     this.isLastInput = false,
@@ -30,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final double? radius;
   final Color? bgColor;
-  final BorderSide? borderSide;
+
   final FontWeight? hintFontWeight;
   final double? hintFontSize;
   final bool isLastInput;
@@ -49,7 +48,7 @@ class CustomTextFormField extends StatelessWidget {
       textAlignVertical: TextAlignVertical.center,
       keyboardType: keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
-        fillColor: bgColor ?? Colors.white,
+        fillColor: bgColor ?? ColorsManager.veryLightGrey,
         filled: true,
         contentPadding: contentPadding ??
             const EdgeInsets.symmetric(
@@ -65,13 +64,14 @@ class CustomTextFormField extends StatelessWidget {
           fontSize: hintFontSize ?? 16,
         ),
         focusedBorder: borderStyle(),
-        enabledBorder: borderStyle(),
-        border: borderStyle(),
+        border: borderStyle(
+          borderSide: BorderSide.none,
+        ),
       ),
     );
   }
 
-  OutlineInputBorder borderStyle({Color? color}) {
+  OutlineInputBorder borderStyle({Color? color, BorderSide? borderSide}) {
     return OutlineInputBorder(
       borderSide: borderSide ??
           BorderSide(
