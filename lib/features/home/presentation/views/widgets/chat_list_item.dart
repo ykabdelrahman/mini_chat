@@ -11,7 +11,7 @@ class ChatListItem extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           children: [
             const CircleAvatar(
@@ -29,7 +29,7 @@ class ChatListItem extends StatelessWidget {
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 3),
                 Text(
                   'hi how u doing today?',
                   style: Styles.textStyle14.copyWith(
