@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
+import 'package:mini_chat/features/home/presentation/views/bottom_nav_bar.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/signup/signup_view.dart';
-import '../../features/home/presentation/views/home_view.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/splash_view.dart';
 import '../func/transition_page.dart';
@@ -39,11 +39,11 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: Routes.homeView,
+        path: Routes.bottomNavBar,
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child: const HomeView(),
+          child: const BottomNavBar(),
         ),
       ),
     ],

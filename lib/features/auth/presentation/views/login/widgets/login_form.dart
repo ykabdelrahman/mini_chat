@@ -28,10 +28,6 @@ class _LoginFormState extends State<LoginForm> {
           CustomTextFormField(
             controller: emailController,
             hint: 'Email',
-            prefixIcon: const Icon(
-              Icons.email_outlined,
-              color: ColorsManager.mainGreen,
-            ),
             validator: validateEmail,
           ),
           const SizedBox(height: 18),
@@ -41,10 +37,6 @@ class _LoginFormState extends State<LoginForm> {
             validator: validatePassword,
             hideText: isObscureText,
             isLastInput: true,
-            prefixIcon: const Icon(
-              Icons.lock_outlined,
-              color: ColorsManager.mainGreen,
-            ),
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -53,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
               },
               child: Icon(
                 isObscureText ? Icons.visibility_off : Icons.visibility,
-                color: ColorsManager.mainGreen,
+                color: ColorsManager.textGrey.withOpacity(.5),
               ),
             ),
           ),
@@ -72,7 +64,7 @@ class _LoginFormState extends State<LoginForm> {
             text: "Login",
             onTap: () {
               if (_key.currentState!.validate()) {
-                context.go(Routes.homeView);
+                context.go(Routes.bottomNavBar);
               }
             },
           ),

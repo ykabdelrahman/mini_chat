@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/assets.dart';
 import 'widgets/dont_have_account.dart';
@@ -23,13 +22,11 @@ class LoginView extends StatelessWidget {
                   height: 150,
                 ),
                 const SizedBox(height: 18),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Login to your account',
-                    style: Styles.textStyle20.copyWith(
-                      color: ColorsManager.mainGreen,
-                    ),
+                    style: Styles.textStyle20,
                   ),
                 ),
                 const SizedBox(height: 26),
