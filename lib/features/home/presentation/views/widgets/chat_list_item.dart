@@ -4,12 +4,12 @@ import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/utils/assets.dart';
 
 class ChatListItem extends StatelessWidget {
-  const ChatListItem({super.key});
-
+  const ChatListItem({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(

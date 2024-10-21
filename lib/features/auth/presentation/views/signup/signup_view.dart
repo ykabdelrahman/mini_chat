@@ -12,6 +12,7 @@ class SignupView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Create an account',
+        centerTitle: true,
         leading: InkWell(
           onTap: () => context.pop(),
           child: const Icon(Icons.arrow_back_rounded),

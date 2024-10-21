@@ -4,4 +4,5 @@ class Routes {
   static const String signupView = '/signupView';
   static const String bottomNavBar = '/bottomNavBar';
   static const String profileView = '/profileView';
+  static const String chatView = '/chatView';
 }
