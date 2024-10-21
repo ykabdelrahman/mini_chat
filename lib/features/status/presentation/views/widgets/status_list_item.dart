@@ -26,6 +26,7 @@ class StatusListItem extends StatelessWidget {
               ),
               child: const CircleAvatar(
                 radius: 30,
+                backgroundColor: ColorsManager.veryLightGrey,
                 backgroundImage: AssetImage(AssetsData.logo),
               ),
             ),

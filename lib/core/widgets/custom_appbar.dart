@@ -8,10 +8,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.actions,
     this.leading,
+    this.centerTitle,
   });
   final String? title;
   final Widget? leading;
   final List<Widget>? actions;
+  final bool? centerTitle;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -20,6 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: Styles.textStyle20.copyWith(color: ColorsManager.textGrey),
       ),
       leading: leading,
+      centerTitle: centerTitle,
       elevation: 0,
       scrolledUnderElevation: 0,
       backgroundColor: Colors.white,

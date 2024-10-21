@@ -16,6 +16,7 @@ class CallsListItem extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 25,
+              backgroundColor: ColorsManager.veryLightGrey,
               backgroundImage: AssetImage(AssetsData.logo),
             ),
             const SizedBox(width: 16),
