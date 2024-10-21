@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../../core/routes/routes.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
 
@@ -26,7 +28,7 @@ class HomeAppBar extends StatelessWidget {
                 child: const Text('New group', style: Styles.textStyle16),
               ),
               PopupMenuItem(
-                onTap: () {},
+                onTap: () => context.push(Routes.profileView),
                 child: const Text('Profile', style: Styles.textStyle16),
               ),
               PopupMenuItem(

@@ -18,6 +18,7 @@ class AddStatusItem extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 30,
+                  backgroundColor: ColorsManager.veryLightGrey,
                   backgroundImage: AssetImage(AssetsData.logo),
                 ),
                 Positioned(

@@ -16,6 +16,7 @@ class ChatListItem extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 30,
+              backgroundColor: ColorsManager.veryLightGrey,
               backgroundImage: AssetImage(AssetsData.logo),
             ),
             const SizedBox(width: 16),
