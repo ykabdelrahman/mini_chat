@@ -24,7 +24,7 @@ class HomeAppBar extends StatelessWidget {
           itemBuilder: (context) {
             return [
               PopupMenuItem(
-                onTap: () {},
+                onTap: () => context.push(Routes.newGroupView),
                 child: const Text('New group', style: Styles.textStyle16),
               ),
               PopupMenuItem(

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:mini_chat/features/home/presentation/views/bottom_nav_bar.dart';
+import 'package:mini_chat/features/new_group/presentation/views/new_group_view.dart';
 import 'package:mini_chat/features/profile/presentation/views/profile_view.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/signup/signup_view.dart';
@@ -62,6 +63,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: const ChatView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.newGroupView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const NewGroupView(),
         ),
       ),
     ],

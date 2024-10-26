@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import '../../../../core/widgets/custom_appbar.dart';
+import 'widgets/chat_app_bar.dart';
 import 'widgets/chat_bubble.dart';
 import 'widgets/chat_text_field.dart';
 
@@ -10,13 +9,7 @@ class ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: 'Duhhh',
-        leading: InkWell(
-          onTap: () => context.pop(),
-          child: const Icon(Icons.arrow_back_rounded),
-        ),
-      ),
+      appBar: const ChatAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
