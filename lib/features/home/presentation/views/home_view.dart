@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/themes/colors_manager.dart';
 import 'widgets/chat_list.dart';
 import 'widgets/home_app_bar.dart';
 
@@ -7,11 +8,27 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Column(
+    return SafeArea(
+      child: Stack(
         children: [
-          HomeAppBar(),
-          ChatList(),
+          const Column(
+            children: [
+              HomeAppBar(),
+              ChatList(),
+            ],
+          ),
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: ColorsManager.mainGreen,
+              child: const Icon(
+                Icons.message,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );
