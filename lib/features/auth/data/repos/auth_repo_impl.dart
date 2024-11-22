@@ -24,6 +24,7 @@ class AuthRepoImpl implements AuthRepo {
         'email': email,
         'username': username,
         'phoneNumber': phoneNumber,
+        'avatarUrl': 'default-avatar-url',
       });
       return const Right('Account created successfully');
     } on FirebaseAuthException catch (error) {
