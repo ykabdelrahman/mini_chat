@@ -4,8 +4,10 @@ import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/utils/assets.dart';
 
 class ChatListItem extends StatelessWidget {
-  const ChatListItem({super.key, this.onTap});
+  const ChatListItem({super.key, this.onTap, this.username});
   final void Function()? onTap;
+  final String? username;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -24,7 +26,7 @@ class ChatListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Duhhh',
+                  username ?? 'Duhhh',
                   style: Styles.textStyle16.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
