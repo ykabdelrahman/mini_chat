@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import '../../view_model/auth_cubit/auth_cubit.dart';
 import 'widgets/dont_have_account.dart';
+import 'widgets/login_bloc_listener.dart';
 import 'widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
@@ -31,8 +35,22 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 26),
                 const LoginForm(),
+                const SizedBox(height: 50),
+                CustomButton(
+                  text: "Login",
+                  onTap: () {
+                    if (context
+                        .read<AuthCubit>()
+                        .loginFormKey
+                        .currentState!
+                        .validate()) {
+                      context.read<AuthCubit>().login();
+                    }
+                  },
+                ),
                 const SizedBox(height: 26),
                 const DontHaveAccount(),
+                const LoginBlocListener(),
               ],
             ),
           ),
