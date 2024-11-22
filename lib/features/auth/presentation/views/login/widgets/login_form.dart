@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_chat/core/func/validation.dart';
-import '../../../../../../core/routes/routes.dart';
 import '../../../../../../core/themes/colors_manager.dart';
 import '../../../../../../core/themes/styles.dart';
-import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../view_model/auth_cubit/auth_cubit.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -15,24 +14,22 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   bool isObscureText = true;
   @override
   Widget build(BuildContext context) {
+    var authCubit = context.read<AuthCubit>();
     return Form(
-      key: _key,
+      key: authCubit.loginFormKey,
       child: Column(
         children: [
           CustomTextFormField(
-            controller: emailController,
+            controller: authCubit.emailLoginController,
             hint: 'Email',
             validator: validateEmail,
           ),
           const SizedBox(height: 18),
           CustomTextFormField(
-            controller: passwordController,
+            controller: authCubit.passwordLoginController,
             hint: 'Password',
             validator: validatePassword,
             hideText: isObscureText,
@@ -58,15 +55,6 @@ class _LoginFormState extends State<LoginForm> {
                 color: ColorsManager.mainGreen,
               ),
             ),
-          ),
-          const SizedBox(height: 50),
-          CustomButton(
-            text: "Login",
-            onTap: () {
-              if (_key.currentState!.validate()) {
-                context.go(Routes.bottomNavBar);
-              }
-            },
           ),
         ],
       ),

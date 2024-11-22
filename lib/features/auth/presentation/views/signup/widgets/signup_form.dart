@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/func/validation.dart';
 import '../../../../../../core/themes/colors_manager.dart';
-import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../view_model/auth_cubit/auth_cubit.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -13,41 +13,37 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
-  final usernameController = TextEditingController();
-  final emailController = TextEditingController();
-  final phoneNumberController = TextEditingController();
-  final passwordController = TextEditingController();
-  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   bool isPasswordObscureText = true;
   bool isPasswordConfirmationObscureText = true;
   @override
   Widget build(BuildContext context) {
+    var authCubit = context.read<AuthCubit>();
     return Form(
-      key: _key,
+      key: authCubit.signupFormKey,
       child: Column(
         children: [
           CustomTextFormField(
-            controller: usernameController,
+            controller: authCubit.usernameController,
             hint: 'Username',
             validator: validateUsername,
           ),
           const SizedBox(height: 18),
           CustomTextFormField(
-            controller: emailController,
+            controller: authCubit.emailSignupController,
             hint: 'Email',
             keyboardType: TextInputType.emailAddress,
             validator: validateEmail,
           ),
           const SizedBox(height: 18),
           CustomTextFormField(
-            controller: phoneNumberController,
+            controller: authCubit.phoneController,
             hint: 'phone number',
             keyboardType: TextInputType.phone,
             validator: validatePhoneNumber,
           ),
           const SizedBox(height: 18),
           CustomTextFormField(
-            controller: passwordController,
+            controller: authCubit.passwordSignupController,
             hint: 'Password',
             hideText: isPasswordObscureText,
             suffixIcon: GestureDetector(
@@ -66,6 +62,7 @@ class _SignupFormState extends State<SignupForm> {
           const SizedBox(height: 18),
           CustomTextFormField(
             hint: 'Confirm Pasword',
+            controller: authCubit.passwordConfirmationController,
             hideText: isPasswordConfirmationObscureText,
             isLastInput: true,
             suffixIcon: GestureDetector(
@@ -83,19 +80,10 @@ class _SignupFormState extends State<SignupForm> {
               ),
             ),
             validator: (value) {
-              if (value != passwordController.text) {
+              if (value != authCubit.passwordSignupController.text) {
                 return 'Passwords do not match';
               }
               return null;
-            },
-          ),
-          const SizedBox(height: 40),
-          CustomButton(
-            text: "Sign Up",
-            onTap: () {
-              if (_key.currentState!.validate()) {
-                context.pop();
-              }
             },
           ),
         ],
