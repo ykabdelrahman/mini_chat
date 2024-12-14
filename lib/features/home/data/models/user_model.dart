@@ -13,9 +13,9 @@ class UserModel {
     required this.avatarUrl,
   });
 
-  factory UserModel.fromFirestore(Map<String, dynamic> data, String id) {
+  factory UserModel.fromFirestore(Map<String, dynamic> data) {
     return UserModel(
-      id: id,
+      id: data['uid'] ?? '',
       username: data['username'] ?? '',
       email: data['email'] ?? '',
       phoneNumber: data['phoneNumber'] ?? '',
