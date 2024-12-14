@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mini_chat/core/themes/styles.dart';
+import '../../../../../core/routes/routes.dart';
 import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../data/models/user_model.dart';
 
 class ChatListItem extends StatelessWidget {
-  const ChatListItem({super.key, this.onTap, this.username});
-  final void Function()? onTap;
-  final String? username;
+  const ChatListItem({super.key, this.user});
+  final UserModel? user;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: () => context.push(Routes.chatView, extra: user),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
@@ -26,7 +28,7 @@ class ChatListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  username ?? 'Duhhh',
+                  user?.username ?? 'Duhhh',
                   style: Styles.textStyle16.copyWith(
                     fontWeight: FontWeight.w600,
                   ),

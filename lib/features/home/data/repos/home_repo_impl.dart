@@ -11,7 +11,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       final querySnapshot = await _firestore.collection('users').get();
       return Right(querySnapshot.docs.map((doc) {
-        return UserModel.fromFirestore(doc.data(), doc.id);
+        return UserModel.fromFirestore(doc.data());
       }).toList());
     } catch (error) {
       return Left('Error fetching users: $error');

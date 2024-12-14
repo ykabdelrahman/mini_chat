@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
 
 class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const ChatAppBar({super.key});
-
+  const ChatAppBar({super.key, this.title});
+  final String? title;
   @override
   Widget build(BuildContext context) {
     return CustomAppBar(
-      title: 'Duhhh',
+      title: title,
       leading: InkWell(
         onTap: () => context.pop(),
         child: const Icon(Icons.arrow_back_rounded),

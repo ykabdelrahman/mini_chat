@@ -8,6 +8,7 @@ import '../../features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/signup/signup_view.dart';
 import '../../features/chat/presentation/views/chat_view.dart';
+import '../../features/home/data/models/user_model.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/splash_view.dart';
 import '../func/transition_page.dart';
@@ -72,7 +73,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child: const ChatView(),
+          child: ChatView(user: state.extra as UserModel),
         ),
       ),
       GoRoute(

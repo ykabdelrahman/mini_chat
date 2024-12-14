@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../view_model/home_cubit/home_cubit.dart';
 import 'chat_list_item.dart';
 
@@ -39,10 +37,7 @@ class ChatList extends StatelessWidget {
               itemCount: otherUsers.length,
               itemBuilder: (context, index) {
                 final user = otherUsers[index];
-                return ChatListItem(
-                  onTap: () => context.push(Routes.chatView),
-                  username: user.username,
-                );
+                return ChatListItem(user: user);
               },
             ),
           );
