@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/themes/styles.dart';
+import '../../../../../core/utils/di.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
+import '../../../../search/data/repos/search_repo_impl.dart';
+import '../../../../search/presentation/view_model/search_cubit/search_cubit.dart';
+import '../../../../search/presentation/views/search_view.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -13,7 +18,7 @@ class HomeAppBar extends StatelessWidget {
       title: 'Chats',
       actions: [
         InkWell(
-          onTap: () {},
+          onTap: () => _showSearchScreen(context),
           borderRadius: BorderRadius.circular(15),
           child: const Icon(Icons.search),
         ),
@@ -39,6 +44,26 @@ class HomeAppBar extends StatelessWidget {
           },
         ),
       ],
+    );
+  }
+
+  void _showSearchScreen(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.zero,
+          topRight: Radius.zero,
+        ),
+      ),
+      builder: (BuildContext context) {
+        return BlocProvider(
+          create: (context) => SearchCubit(getIt.get<SearchRepoImpl>()),
+          child: const SearchView(),
+        );
+      },
     );
   }
 }

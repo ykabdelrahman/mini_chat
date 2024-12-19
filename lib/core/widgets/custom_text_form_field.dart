@@ -18,6 +18,8 @@ class CustomTextFormField extends StatelessWidget {
     this.hintFontSize,
     this.isLastInput = false,
     this.keyboardType,
+    this.autofocus = false,
+    this.onChanged,
   });
   final String? hint;
   final bool? hideText;
@@ -29,15 +31,18 @@ class CustomTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final double? radius;
   final Color? bgColor;
-
+  final bool autofocus;
   final FontWeight? hintFontWeight;
   final double? hintFontSize;
   final bool isLastInput;
   final TextInputType? keyboardType;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: autofocus,
+      onChanged: onChanged,
       textInputAction:
           isLastInput ? TextInputAction.done : TextInputAction.next,
       controller: controller,
