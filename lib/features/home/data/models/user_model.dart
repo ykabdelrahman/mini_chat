@@ -13,13 +13,23 @@ class UserModel {
     required this.avatarUrl,
   });
 
-  factory UserModel.fromFirestore(Map<String, dynamic> data) {
+  factory UserModel.fromMap(Map<String, dynamic> data) {
     return UserModel(
       id: data['uid'] ?? '',
-      username: data['username'] ?? '',
+      username: data['username'] ?? 'Unknown',
       email: data['email'] ?? '',
       phoneNumber: data['phoneNumber'] ?? '',
       avatarUrl: data['avatarUrl'] ?? '',
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'username': username,
+      'email': email,
+      'phoneNumber': phoneNumber,
+      'avatarUrl': avatarUrl,
+    };
   }
 }

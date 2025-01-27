@@ -37,7 +37,7 @@ class HomeAppBar extends StatelessWidget {
                 child: const Text('Profile', style: Styles.textStyle16),
               ),
               PopupMenuItem(
-                onTap: () {},
+                onTap: () => context.push(Routes.settingsView),
                 child: const Text('Settings', style: Styles.textStyle16),
               ),
             ];
