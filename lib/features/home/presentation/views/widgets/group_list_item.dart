@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../../core/routes/routes.dart';
 import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/assets.dart';
-import '../../../../home/data/models/user_model.dart';
+import '../../../../new_group/data/models/group_model.dart';
 
-class NewGroupListItem extends StatelessWidget {
-  final void Function()? onTap;
-  final UserModel? user;
-  final bool isSelected;
-
-  const NewGroupListItem({
-    super.key,
-    this.onTap,
-    this.user,
-    this.isSelected = false,
-  });
-
+class GroupListItem extends StatelessWidget {
+  const GroupListItem({super.key, this.group});
+  final GroupModel? group;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: () => context.push(Routes.groupChatView, extra: group),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
@@ -34,7 +27,7 @@ class NewGroupListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  user?.username ?? 'Duhhh',
+                  group?.groupName ?? 'Duhhh',
                   style: Styles.textStyle16.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -42,7 +35,7 @@ class NewGroupListItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  user?.phoneNumber ?? '+2123456789',
+                  'hi how u doing today?',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
                     color: ColorsManager.textGrey.withOpacity(.5),
@@ -52,8 +45,29 @@ class NewGroupListItem extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            if (isSelected)
-              const Icon(Icons.check_circle, color: ColorsManager.mainGreen),
+            Column(
+              children: [
+                Text(
+                  '11:30',
+                  style: Styles.textStyle14.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: ColorsManager.textGrey.withOpacity(.5),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const CircleAvatar(
+                  radius: 12,
+                  backgroundColor: ColorsManager.mainGreen,
+                  child: Center(
+                    child: Text(
+                      '2',
+                      maxLines: 1,
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

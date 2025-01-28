@@ -51,4 +51,40 @@ class ChatRepoImpl implements ChatRepo {
               .toList(),
         );
   }
+
+  @override
+  Future<void> sendGroupMessage(
+      {required groupChatId, required message}) async {
+    final String currentUserID = _auth.currentUser!.uid;
+    final String currentUserEmail = _auth.currentUser!.email!;
+    final Timestamp timestamp = Timestamp.now();
+
+    MessageModel newMessage = MessageModel(
+      message: message,
+      receiverUid: groupChatId,
+      senderEmail: currentUserEmail,
+      senderUid: currentUserID,
+      timestamp: timestamp,
+    );
+    await _firestore
+        .collection('groups')
+        .doc(groupChatId)
+        .collection('messages')
+        .add(newMessage.toJson());
+  }
+
+  @override
+  Stream<List<MessageModel>> getGroupMessages({required groupChatId}) {
+    return _firestore
+        .collection('groups')
+        .doc(groupChatId)
+        .collection('messages')
+        .orderBy('timestamp', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => MessageModel.fromFirestore(doc))
+              .toList(),
+        );
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/routes/routes.dart';
@@ -31,11 +32,18 @@ class _SplashViewState extends State<SplashView> {
   }
 
   void navigateToHome() {
+    User? user = FirebaseAuth.instance.currentUser;
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        if (mounted) {
-          context.go(Routes.onboarding);
+        if (user != null) {
+          if (mounted) {
+            context.go(Routes.bottomNavBar);
+          }
+        } else {
+          if (mounted) {
+            context.go(Routes.onboarding);
+          }
         }
       },
     );

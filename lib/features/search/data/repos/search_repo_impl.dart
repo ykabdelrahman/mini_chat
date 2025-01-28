@@ -15,7 +15,7 @@ class SearchRepoImpl implements SearchRepo {
           .where('username', isLessThanOrEqualTo: '$searchText\uf8ff')
           .get();
       return Right(querySnapshot.docs.map((doc) {
-        return UserModel.fromFirestore(doc.data());
+        return UserModel.fromMap(doc.data());
       }).toList());
     } catch (error) {
       return Left('Error fetching users: $error');

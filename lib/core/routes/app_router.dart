@@ -8,9 +8,15 @@ import '../../features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/signup/signup_view.dart';
 import '../../features/chat/presentation/views/chat_view.dart';
+import '../../features/chat/presentation/views/group_chat_view.dart';
 import '../../features/home/data/models/user_model.dart';
+import '../../features/home/data/repos/home_repo_impl.dart';
+import '../../features/home/presentation/view_model/home_cubit/home_cubit.dart';
+import '../../features/new_group/data/models/group_model.dart';
+import '../../features/new_group/presentation/views/new_group_second_step.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/splash_view.dart';
+import '../../features/profile/presentation/views/settings_view.dart';
 import '../func/transition_page.dart';
 import '../utils/di.dart';
 import 'routes.dart';
@@ -81,7 +87,36 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child: const NewGroupView(),
+          child: BlocProvider(
+            create: (context) =>
+                HomeCubit(getIt.get<HomeRepoImpl>())..getUsers(),
+            child: const NewGroupView(),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: Routes.newGroupSecondStep,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child:
+              NewGroupSecondStep(selectedUsers: state.extra as List<UserModel>),
+        ),
+      ),
+      GoRoute(
+        path: Routes.groupChatView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: GroupChatView(group: state.extra as GroupModel),
+        ),
+      ),
+      GoRoute(
+        path: Routes.settingsView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const SettingsView(),
         ),
       ),
     ],

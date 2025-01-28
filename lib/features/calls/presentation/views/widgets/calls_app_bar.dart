@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../../core/routes/routes.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
 
@@ -22,7 +24,7 @@ class CallsAppBar extends StatelessWidget {
           itemBuilder: (context) {
             return [
               PopupMenuItem(
-                onTap: () {},
+                onTap: () => context.push(Routes.settingsView),
                 child: const Text('Settings', style: Styles.textStyle16),
               ),
             ];
