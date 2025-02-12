@@ -19,7 +19,7 @@ class StatusListItem extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isViewed
-                      ? ColorsManager.textGrey.withOpacity(.3)
+                      ? ColorsManager.textGrey.withValues(alpha: .3)
                       : ColorsManager.mainGreen,
                   width: 2,
                 ),
@@ -46,7 +46,7 @@ class StatusListItem extends StatelessWidget {
                   'Today, 12:00 PM',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withOpacity(.5),
+                    color: ColorsManager.textGrey.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),

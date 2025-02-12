@@ -38,7 +38,7 @@ class GroupListItem extends StatelessWidget {
                   'hi how u doing today?',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withOpacity(.5),
+                    color: ColorsManager.textGrey.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -51,7 +51,7 @@ class GroupListItem extends StatelessWidget {
                   '11:30',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withOpacity(.5),
+                    color: ColorsManager.textGrey.withValues(alpha: .5),
                   ),
                 ),
                 const SizedBox(height: 8),

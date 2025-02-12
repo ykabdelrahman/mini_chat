@@ -17,7 +17,7 @@ class DontHaveAccount extends StatelessWidget {
           TextSpan(
             text: 'Don\'t have an account?',
             style: Styles.textStyle14.copyWith(
-              color: ColorsManager.textGrey.withOpacity(.6),
+              color: ColorsManager.textGrey.withValues(alpha: .6),
             ),
           ),
           TextSpan(

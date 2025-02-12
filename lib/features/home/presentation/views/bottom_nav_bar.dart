@@ -33,7 +33,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         backgroundColor: Colors.white,
         showUnselectedLabels: true,
         selectedItemColor: ColorsManager.mainGreen,
-        unselectedItemColor: ColorsManager.textGrey.withOpacity(.4),
+        unselectedItemColor: ColorsManager.textGrey.withValues(alpha: .4),
         onTap: (int index) {
           setState(() {
             currentIndex = index;

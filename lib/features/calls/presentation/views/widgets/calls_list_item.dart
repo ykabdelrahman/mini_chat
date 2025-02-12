@@ -35,7 +35,7 @@ class CallsListItem extends StatelessWidget {
                   'September 10, 7:30 PM',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withOpacity(.5),
+                    color: ColorsManager.textGrey.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -46,7 +46,7 @@ class CallsListItem extends StatelessWidget {
               onTap: () {},
               child: Icon(
                 Icons.call,
-                color: ColorsManager.textGrey.withOpacity(.6),
+                color: ColorsManager.textGrey.withValues(alpha: .6),
               ),
             ),
           ],

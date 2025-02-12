@@ -54,7 +54,7 @@ class _SignupFormState extends State<SignupForm> {
               },
               child: Icon(
                 isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
-                color: ColorsManager.textGrey.withOpacity(.5),
+                color: ColorsManager.textGrey.withValues(alpha: .5),
               ),
             ),
             validator: validatePassword,
@@ -76,7 +76,7 @@ class _SignupFormState extends State<SignupForm> {
                 isPasswordConfirmationObscureText
                     ? Icons.visibility_off
                     : Icons.visibility,
-                color: ColorsManager.textGrey.withOpacity(.5),
+                color: ColorsManager.textGrey.withValues(alpha: .5),
               ),
             ),
             validator: (value) {

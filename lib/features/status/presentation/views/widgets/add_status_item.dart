@@ -62,7 +62,7 @@ class AddStatusItem extends StatelessWidget {
                   'Tap to add status update',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withOpacity(.5),
+                    color: ColorsManager.textGrey.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),

@@ -52,7 +52,7 @@ class ChatTextField extends StatelessWidget {
                 border: borderStyle(),
                 hintText: 'Message',
                 hintStyle: Styles.textStyle16.copyWith(
-                  color: ColorsManager.textGrey.withOpacity(.6),
+                  color: ColorsManager.textGrey.withValues(alpha: .6),
                 ),
               ),
             ),
