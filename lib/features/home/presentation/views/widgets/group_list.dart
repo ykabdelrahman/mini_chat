@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../view_model/home_cubit/home_cubit.dart';
+import '../../view_model/groups_cubit/groups_cubit.dart';
 import 'group_list_item.dart';
 
 class GroupList extends StatelessWidget {
@@ -9,7 +9,7 @@ class GroupList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<GroupsCubit, GroupsState>(
       builder: (context, state) {
         if (state is GroupLoading) {
           return Expanded(

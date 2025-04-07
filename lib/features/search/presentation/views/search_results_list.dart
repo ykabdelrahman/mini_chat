@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +13,7 @@ class SearchResultsList extends StatelessWidget {
     final currentUserId = FirebaseAuth.instance.currentUser?.uid;
     return BlocBuilder<SearchCubit, SearchState>(builder: (context, state) {
       if (state is SearchFailure) {
-        debugPrint(state.errorMessage);
+        log(state.errorMessage);
         return const Text('');
       }
       if (state is SearchSuccess) {

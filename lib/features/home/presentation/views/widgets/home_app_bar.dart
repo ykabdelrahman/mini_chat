@@ -5,7 +5,7 @@ import '../../../../../core/routes/routes.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/di.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
-import '../../../../search/data/repos/search_repo_impl.dart';
+import '../../../../search/data/repos/search_repo.dart';
 import '../../../../search/presentation/view_model/search_cubit/search_cubit.dart';
 import '../../../../search/presentation/views/search_view.dart';
 
@@ -60,7 +60,7 @@ class HomeAppBar extends StatelessWidget {
       ),
       builder: (BuildContext context) {
         return BlocProvider(
-          create: (context) => SearchCubit(getIt.get<SearchRepoImpl>()),
+          create: (context) => SearchCubit(getIt.get<SearchRepo>()),
           child: const SearchView(),
         );
       },

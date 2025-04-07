@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/themes/colors_manager.dart';
-import '../../view_model/home_cubit/home_cubit.dart';
 import 'categories_item.dart';
 
 class CategoriesOptions extends StatelessWidget {
@@ -23,7 +21,6 @@ class CategoriesOptions extends StatelessWidget {
           CategoriesItem(
             onTap: () {
               onCategoryChanged(1);
-              context.read<HomeCubit>().getUsers();
             },
             text: 'Chats',
             bgColor:
@@ -35,7 +32,6 @@ class CategoriesOptions extends StatelessWidget {
           CategoriesItem(
             onTap: () {
               onCategoryChanged(2);
-              context.read<HomeCubit>().getGroups();
             },
             text: 'Groups',
             bgColor:

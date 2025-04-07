@@ -53,8 +53,8 @@ class AuthRepoImpl implements AuthRepo {
     } on FirebaseAuthException catch (error) {
       if (error.code == 'user-not-found') {
         return const Left('No user found for that email.');
-      } else if (error.code == 'wrong-password') {
-        return const Left('Wrong password provided for that user.');
+      } else if (error.code == 'invalid-credential') {
+        return const Left('Email address or password is invalid.');
       } else {
         return Left(error.message.toString());
       }

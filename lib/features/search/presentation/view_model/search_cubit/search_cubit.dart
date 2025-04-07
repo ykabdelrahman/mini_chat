@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../home/data/models/user_model.dart';
 import '../../../data/repos/search_repo.dart';
 part 'search_state.dart';

@@ -3,15 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:mini_chat/features/home/presentation/views/bottom_nav_bar.dart';
 import 'package:mini_chat/features/new_group/presentation/views/new_group_view.dart';
 import 'package:mini_chat/features/profile/presentation/views/profile_view.dart';
-import '../../features/auth/data/repos/auth_repo_impl.dart';
+import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/presentation/view_model/auth_cubit/auth_cubit.dart';
 import '../../features/auth/presentation/views/login/login_view.dart';
 import '../../features/auth/presentation/views/signup/signup_view.dart';
 import '../../features/chat/presentation/views/chat_view.dart';
 import '../../features/chat/presentation/views/group_chat_view.dart';
 import '../../features/home/data/models/user_model.dart';
-import '../../features/home/data/repos/home_repo_impl.dart';
-import '../../features/home/presentation/view_model/home_cubit/home_cubit.dart';
 import '../../features/new_group/data/models/group_model.dart';
 import '../../features/new_group/presentation/views/new_group_second_step.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
@@ -42,7 +40,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
+            create: (context) => AuthCubit(getIt.get<AuthRepo>()),
             child: const LoginView(),
           ),
         ),
@@ -53,7 +51,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
+            create: (context) => AuthCubit(getIt.get<AuthRepo>()),
             child: const SignupView(),
           ),
         ),
@@ -87,11 +85,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child: BlocProvider(
-            create: (context) =>
-                HomeCubit(getIt.get<HomeRepoImpl>())..getUsers(),
-            child: const NewGroupView(),
-          ),
+          child: const NewGroupView(),
         ),
       ),
       GoRoute(

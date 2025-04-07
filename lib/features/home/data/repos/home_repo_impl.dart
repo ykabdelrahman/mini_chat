@@ -8,26 +8,28 @@ class HomeRepoImpl implements HomeRepo {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
-  Future<Either<String, List<UserModel>>> fetchUsers() async {
+  Stream<Either<String, List<UserModel>>> fetchUsers() async* {
     try {
-      final querySnapshot = await _firestore.collection('users').get();
-      return Right(querySnapshot.docs.map((doc) {
-        return UserModel.fromMap(doc.data());
-      }).toList());
+      await for (final data in _firestore.collection('users').snapshots()) {
+        yield Right(data.docs.map((doc) {
+          return UserModel.fromMap(doc.data());
+        }).toList());
+      }
     } catch (error) {
-      return Left('Error fetching users: $error');
+      yield Left('Error fetching users: $error');
     }
   }
 
   @override
-  Future<Either<String, List<GroupModel>>> fetchGroups() async {
+  Stream<Either<String, List<GroupModel>>> fetchGroups() async* {
     try {
-      final querySnapshot = await _firestore.collection('groups').get();
-      return Right(querySnapshot.docs.map((doc) {
-        return GroupModel.fromMap(doc.data());
-      }).toList());
+      await for (final data in _firestore.collection('groups').snapshots()) {
+        yield Right(data.docs.map((doc) {
+          return GroupModel.fromMap(doc.data());
+        }).toList());
+      }
     } catch (error) {
-      return Left('Error fetching users: $error');
+      yield Left('Error fetching users: $error');
     }
   }
 }

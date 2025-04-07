@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mini_chat/core/utils/di.dart';
 import '../../../../core/themes/colors_manager.dart';
 import '../../../calls/presentation/views/calls_view.dart';
 import '../../../status/presentation/views/status_view.dart';
-import '../../data/repos/home_repo_impl.dart';
-import '../view_model/home_cubit/home_cubit.dart';
 import 'home_view.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -18,10 +14,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
   final List<Widget> pages = [
-    BlocProvider(
-      create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..getUsers(),
-      child: const HomeView(),
-    ),
+    const HomeView(),
     const StatusView(),
     const CallsView(),
   ];
