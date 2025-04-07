@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeCubit(getIt.get<HomeRepo>()),
+          create: (context) => HomeCubit(getIt.get<HomeRepo>())..getUsers(),
         ),
         BlocProvider(
-          create: (context) => GroupsCubit(getIt.get<HomeRepo>()),
+          create: (context) => GroupsCubit(getIt.get<HomeRepo>())..getGroups(),
         ),
       ],
       child: MaterialApp.router(
