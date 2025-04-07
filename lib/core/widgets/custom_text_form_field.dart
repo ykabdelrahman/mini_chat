@@ -14,10 +14,12 @@ class CustomTextFormField extends StatelessWidget {
     this.radius,
     this.contentPadding,
     this.bgColor,
-    this.borderSide,
     this.hintFontWeight,
     this.hintFontSize,
     this.isLastInput = false,
+    this.keyboardType,
+    this.autofocus = false,
+    this.onChanged,
   });
   final String? hint;
   final bool? hideText;
@@ -29,24 +31,29 @@ class CustomTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final double? radius;
   final Color? bgColor;
-  final BorderSide? borderSide;
+  final bool autofocus;
   final FontWeight? hintFontWeight;
   final double? hintFontSize;
   final bool isLastInput;
+  final TextInputType? keyboardType;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: autofocus,
+      onChanged: onChanged,
       textInputAction:
           isLastInput ? TextInputAction.done : TextInputAction.next,
       controller: controller,
       validator: validator,
       obscureText: hideText ?? false,
-      cursorColor: ColorsManager.mainBlue,
+      cursorColor: ColorsManager.mainGreen,
       style: textStyle,
       textAlignVertical: TextAlignVertical.center,
+      keyboardType: keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
-        fillColor: bgColor ?? Colors.white,
+        fillColor: bgColor ?? ColorsManager.veryLightGrey,
         filled: true,
         contentPadding: contentPadding ??
             const EdgeInsets.symmetric(
@@ -57,22 +64,23 @@ class CustomTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         hintText: hint,
         hintStyle: TextStyle(
-          color: ColorsManager.textGrey.withOpacity(.5),
+          color: ColorsManager.textGrey.withValues(alpha: .5),
           fontWeight: hintFontWeight ?? FontWeight.w400,
           fontSize: hintFontSize ?? 16,
         ),
         focusedBorder: borderStyle(),
-        enabledBorder: borderStyle(),
-        border: borderStyle(),
+        border: borderStyle(
+          borderSide: BorderSide.none,
+        ),
       ),
     );
   }
 
-  OutlineInputBorder borderStyle() {
+  OutlineInputBorder borderStyle({Color? color, BorderSide? borderSide}) {
     return OutlineInputBorder(
       borderSide: borderSide ??
-          const BorderSide(
-            color: ColorsManager.mainBlue,
+          BorderSide(
+            color: color ?? ColorsManager.mainGreen,
             width: 2,
           ),
       borderRadius: BorderRadius.circular(radius ?? 10),
