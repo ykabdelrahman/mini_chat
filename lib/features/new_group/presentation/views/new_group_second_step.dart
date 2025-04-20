@@ -1,12 +1,15 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mini_chat/features/new_group/data/models/group_model.dart';
-import 'package:mini_chat/features/new_group/data/repos/new_group_repo_impl.dart';
-import '../../../../core/routes/routes.dart';
+import 'package:mini_chat/features/new_group/presentation/views/widgets/new_group_bloc_listener.dart';
 import '../../../../core/themes/colors_manager.dart';
 import '../../../../core/themes/styles.dart';
 import '../../../home/data/models/user_model.dart';
+import '../view_model/new_group/new_group_cubit.dart';
 import 'widgets/group_name_section.dart';
 import 'widgets/participants_section.dart';
 import 'package:uuid/uuid.dart';
@@ -37,27 +40,25 @@ class NewGroupSecondStep extends StatelessWidget {
         child: Column(
           children: [
             GroupNameSection(groupNameController: groupNameController),
-            Expanded(child: ParticipantsSection(selectedUsers: selectedUsers)),
+            Expanded(
+              child: ParticipantsSection(selectedUsers: selectedUsers),
+            ),
+            const NewGroupBlocListener()
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
+        onPressed: () {
           if (groupNameController.text.isNotEmpty) {
-            String groupId = const Uuid().v4();
-            GroupModel newGroup = GroupModel(
-              id: groupId,
+            log('selectedUsers: ${selectedUsers.map((user) => user.id).toList()}');
+
+            final group = GroupModel(
+              id: const Uuid().v4(),
               groupName: groupNameController.text,
               participants: selectedUsers.map((user) => user.id).toList(),
               createdAt: Timestamp.now(),
             );
-            NewGroupRepoImpl().createGroup(group: newGroup);
-            if (context.mounted) {
-              context.pushReplacement(
-                Routes.groupChatView,
-                extra: newGroup,
-              );
-            }
+            context.read<NewGroupCubit>().createGroup(group: group);
           }
         },
         backgroundColor: ColorsManager.mainGreen,

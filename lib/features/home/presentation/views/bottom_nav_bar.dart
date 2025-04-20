@@ -49,7 +49,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
         ],
       ),
-      body: pages[currentIndex],
+      body: IndexedStack(index: currentIndex, children: pages),
     );
   }
 }

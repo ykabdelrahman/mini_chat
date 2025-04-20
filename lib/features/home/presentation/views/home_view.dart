@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/themes/colors_manager.dart';
+import '../view_model/groups_cubit/groups_cubit.dart';
+import '../view_model/home_cubit/home_cubit.dart';
 import 'widgets/categories_options.dart';
 import 'widgets/chat_list.dart';
 import 'widgets/group_list.dart';
@@ -19,6 +22,13 @@ class _HomeViewState extends State<HomeView> {
     setState(() {
       _selectedCategory = selected;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeCubit>().getUsers();
+    context.read<GroupsCubit>().getGroups();
   }
 
   @override
