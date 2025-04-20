@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../../../core/data/user_manager.dart';
+import '../../../home/data/models/user_model.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -44,10 +48,18 @@ class AuthRepoImpl implements AuthRepo {
     required password,
   }) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      final uid = userCredential.user!.uid;
+      final docSnapshot = await _firestore.collection('users').doc(uid).get();
+      if (!docSnapshot.exists) {
+        log('User does not exist');
+      }
+      final userData = UserModel.fromJson(docSnapshot.data()!);
+      await UserManager().setUserData(userData);
 
       return const Right('Login successful');
     } on FirebaseAuthException catch (error) {

@@ -13,7 +13,7 @@ class UserModel {
     required this.avatarUrl,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> data) {
+  factory UserModel.fromJson(Map<String, dynamic> data) {
     return UserModel(
       id: data['uid'] ?? '',
       username: data['username'] ?? 'Unknown',
@@ -23,9 +23,9 @@ class UserModel {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
-      'id': id,
+      'uid': id,
       'username': username,
       'email': email,
       'phoneNumber': phoneNumber,

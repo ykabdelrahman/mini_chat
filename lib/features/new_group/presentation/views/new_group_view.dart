@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/data/user_manager.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/themes/colors_manager.dart';
 import '../../../home/data/models/user_model.dart';
@@ -15,6 +16,15 @@ class NewGroupView extends StatefulWidget {
 
 class _NewGroupViewState extends State<NewGroupView> {
   final List<UserModel> selectedUsers = [];
+
+  @override
+  void initState() {
+    super.initState();
+    final currentUser = UserManager().getUserData();
+    if (currentUser != null) {
+      selectedUsers.add(currentUser);
+    }
+  }
 
   void toggleSelection(UserModel user) {
     setState(() {

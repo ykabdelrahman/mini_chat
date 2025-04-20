@@ -11,6 +11,8 @@ import '../../features/chat/presentation/views/chat_view.dart';
 import '../../features/chat/presentation/views/group_chat_view.dart';
 import '../../features/home/data/models/user_model.dart';
 import '../../features/new_group/data/models/group_model.dart';
+import '../../features/new_group/data/repos/new_group_repo.dart';
+import '../../features/new_group/presentation/view_model/new_group/new_group_cubit.dart';
 import '../../features/new_group/presentation/views/new_group_second_step.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
 import '../../features/onboarding/presentation/views/splash_view.dart';
@@ -93,8 +95,11 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child:
-              NewGroupSecondStep(selectedUsers: state.extra as List<UserModel>),
+          child: BlocProvider(
+            create: (context) => NewGroupCubit(getIt.get<NewGroupRepo>()),
+            child: NewGroupSecondStep(
+                selectedUsers: state.extra as List<UserModel>),
+          ),
         ),
       ),
       GoRoute(
