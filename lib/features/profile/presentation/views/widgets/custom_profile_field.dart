@@ -33,7 +33,7 @@ class CustomProfileField extends StatelessWidget {
         Text(
           text,
           style: Styles.textStyle18.copyWith(
-            color: ColorsManager.textGrey,
+            color: ColorsManager.offWhite,
           ),
         ),
         const SizedBox(height: 6),

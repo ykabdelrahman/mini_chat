@@ -20,7 +20,7 @@ class ChatListItem extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 30,
-              backgroundColor: ColorsManager.veryLightGrey,
+              backgroundColor: ColorsManager.neutralDark,
               backgroundImage: AssetImage(AssetsData.logo),
             ),
             const SizedBox(width: 16),
@@ -39,7 +39,7 @@ class ChatListItem extends StatelessWidget {
                   'hi how u doing today?',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withValues(alpha: .5),
+                    color: ColorsManager.offWhite.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -52,13 +52,13 @@ class ChatListItem extends StatelessWidget {
                   '11:30',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withValues(alpha: .5),
+                    color: ColorsManager.offWhite.withValues(alpha: .5),
                   ),
                 ),
                 const SizedBox(height: 8),
                 const CircleAvatar(
                   radius: 12,
-                  backgroundColor: ColorsManager.mainGreen,
+                  backgroundColor: ColorsManager.brandDefault,
                   child: Center(
                     child: Text(
                       '2',

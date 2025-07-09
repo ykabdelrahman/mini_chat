@@ -59,7 +59,7 @@ class _NewGroupViewState extends State<NewGroupView> {
           }
         },
         backgroundColor:
-            selectedUsers.isEmpty ? Colors.grey : ColorsManager.mainGreen,
+            selectedUsers.isEmpty ? Colors.grey : ColorsManager.brandDefault,
         child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
     );

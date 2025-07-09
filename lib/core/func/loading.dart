@@ -6,7 +6,7 @@ void loading(BuildContext context) {
     context: context,
     builder: (context) => const Center(
       child: CircularProgressIndicator(
-        color: ColorsManager.mainGreen,
+        color: ColorsManager.brandDefault,
       ),
     ),
   );

@@ -48,12 +48,12 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       validator: validator,
       obscureText: hideText ?? false,
-      cursorColor: ColorsManager.mainGreen,
+      cursorColor: ColorsManager.brandDefault,
       style: textStyle,
       textAlignVertical: TextAlignVertical.center,
       keyboardType: keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
-        fillColor: bgColor ?? ColorsManager.veryLightGrey,
+        fillColor: bgColor ?? ColorsManager.neutralDark,
         filled: true,
         contentPadding: contentPadding ??
             const EdgeInsets.symmetric(
@@ -64,7 +64,7 @@ class CustomTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         hintText: hint,
         hintStyle: TextStyle(
-          color: ColorsManager.textGrey.withValues(alpha: .5),
+          color: ColorsManager.offWhite.withValues(alpha: .5),
           fontWeight: hintFontWeight ?? FontWeight.w400,
           fontSize: hintFontSize ?? 16,
         ),
@@ -80,7 +80,7 @@ class CustomTextFormField extends StatelessWidget {
     return OutlineInputBorder(
       borderSide: borderSide ??
           BorderSide(
-            color: color ?? ColorsManager.mainGreen,
+            color: color ?? ColorsManager.brandDefault,
             width: 2,
           ),
       borderRadius: BorderRadius.circular(radius ?? 10),

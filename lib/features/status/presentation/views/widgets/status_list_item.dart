@@ -19,14 +19,14 @@ class StatusListItem extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isViewed
-                      ? ColorsManager.textGrey.withValues(alpha: .3)
-                      : ColorsManager.mainGreen,
+                      ? ColorsManager.offWhite.withValues(alpha: .3)
+                      : ColorsManager.brandDefault,
                   width: 2,
                 ),
               ),
               child: const CircleAvatar(
                 radius: 30,
-                backgroundColor: ColorsManager.veryLightGrey,
+                backgroundColor: ColorsManager.neutralDark,
                 backgroundImage: AssetImage(AssetsData.logo),
               ),
             ),
@@ -46,7 +46,7 @@ class StatusListItem extends StatelessWidget {
                   'Today, 12:00 PM',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withValues(alpha: .5),
+                    color: ColorsManager.offWhite.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),

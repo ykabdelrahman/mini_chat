@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mini_chat/core/themes/colors_manager.dart';
 import '../../../../../core/themes/styles.dart';
 
 class CategoriesItem extends StatelessWidget {
@@ -22,11 +21,10 @@ class CategoriesItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: ColorsManager.mainGreen, width: 2),
           color: bgColor,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 3),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Center(
             child: Text(
               text,

@@ -16,7 +16,7 @@ class CallsListItem extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 25,
-              backgroundColor: ColorsManager.veryLightGrey,
+              backgroundColor: ColorsManager.neutralDark,
               backgroundImage: AssetImage(AssetsData.logo),
             ),
             const SizedBox(width: 16),
@@ -35,7 +35,7 @@ class CallsListItem extends StatelessWidget {
                   'September 10, 7:30 PM',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withValues(alpha: .5),
+                    color: ColorsManager.offWhite.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -46,7 +46,7 @@ class CallsListItem extends StatelessWidget {
               onTap: () {},
               child: Icon(
                 Icons.call,
-                color: ColorsManager.textGrey.withValues(alpha: .6),
+                color: ColorsManager.offWhite.withValues(alpha: .6),
               ),
             ),
           ],

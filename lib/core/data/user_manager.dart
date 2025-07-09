@@ -3,7 +3,7 @@ import '../../features/home/data/models/user_model.dart';
 import 'prefs.dart';
 
 class UserManager {
-  setUserData(UserModel user) {
+  Future<void> setUserData(UserModel user) async {
     var jsonData = jsonEncode(user.toJson());
     Prefs.setString('user_data', jsonData);
   }

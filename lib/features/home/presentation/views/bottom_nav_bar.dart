@@ -11,7 +11,8 @@ class BottomNavBar extends StatefulWidget {
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _BottomNavBarState extends State<BottomNavBar>
+    with AutomaticKeepAliveClientMixin {
   int currentIndex = 0;
   final List<Widget> pages = [
     const HomeView(),
@@ -21,12 +22,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorsManager.bgColor,
         showUnselectedLabels: true,
-        selectedItemColor: ColorsManager.mainGreen,
-        unselectedItemColor: ColorsManager.textGrey.withValues(alpha: .4),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: ColorsManager.offWhite.withValues(alpha: .4),
         onTap: (int index) {
           setState(() {
             currentIndex = index;
@@ -52,4 +54,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       body: IndexedStack(index: currentIndex, children: pages),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

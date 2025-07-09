@@ -6,8 +6,9 @@ void showSnackBar(BuildContext context, String text) {
     SnackBar(
       content: Text(
         text,
+        style: TextStyle(color: ColorsManager.offWhite),
       ),
-      backgroundColor: ColorsManager.mainGreen,
+      backgroundColor: ColorsManager.neutralDark,
     ),
   );
 }

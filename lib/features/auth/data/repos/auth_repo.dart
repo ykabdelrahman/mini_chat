@@ -2,10 +2,11 @@ import 'package:dartz/dartz.dart';
 
 abstract class AuthRepo {
   Future<Either<String, String>> signUp({
-    required email,
-    required password,
-    required username,
-    required phoneNumber,
+    required String email,
+    required String password,
+    required String username,
+    required String phoneNumber,
   });
-  Future<Either<String, String>> login({required email, required password});
+  Future<Either<String, String>> login(
+      {required String email, required String password});
 }

@@ -16,10 +16,10 @@ class GroupNameSection extends StatelessWidget {
             children: [
               const CircleAvatar(
                 radius: 30,
-                backgroundColor: ColorsManager.veryLightGrey,
+                backgroundColor: ColorsManager.neutralDark,
                 child: Icon(
                   Icons.camera_alt,
-                  color: ColorsManager.mainGreen,
+                  color: ColorsManager.brandDefault,
                 ),
               ),
               const SizedBox(width: 16),

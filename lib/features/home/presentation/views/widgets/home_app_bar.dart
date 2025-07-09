@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/themes/colors_manager.dart';
 import '../../../../../core/themes/styles.dart';
 import '../../../../../core/utils/di.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
@@ -24,7 +25,7 @@ class HomeAppBar extends StatelessWidget {
         ),
         PopupMenuButton(
           icon: const Icon(Icons.more_vert),
-          color: Colors.white,
+          color: ColorsManager.neutralDark,
           position: PopupMenuPosition.under,
           itemBuilder: (context) {
             return [

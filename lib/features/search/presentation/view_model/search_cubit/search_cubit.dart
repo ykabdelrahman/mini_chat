@@ -8,7 +8,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   SearchRepo searchRepo;
 
-  fetchUsers({required String searchText}) async {
+  void fetchUsers({required String searchText}) async {
     emit(SearchLoading());
     var results = await searchRepo.fetchSearchUsers(searchText: searchText);
     results.fold(

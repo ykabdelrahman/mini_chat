@@ -13,7 +13,7 @@ class StatusSectionText extends StatelessWidget {
         title,
         style: Styles.textStyle16.copyWith(
           fontWeight: FontWeight.w600,
-          color: ColorsManager.textGrey.withValues(alpha: .5),
+          color: ColorsManager.offWhite.withValues(alpha: .5),
         ),
       ),
     );

@@ -14,7 +14,7 @@ class EditProfilePic extends StatelessWidget {
         children: [
           const CircleAvatar(
             radius: 50,
-            backgroundColor: ColorsManager.veryLightGrey,
+            backgroundColor: ColorsManager.neutralDark,
             backgroundImage: AssetImage(AssetsData.logo),
           ),
           Align(
@@ -23,7 +23,7 @@ class EditProfilePic extends StatelessWidget {
               height: 26,
               width: 26,
               decoration: const BoxDecoration(
-                color: ColorsManager.mainGreen,
+                color: ColorsManager.brandDefault,
                 shape: BoxShape.circle,
               ),
               child: const Center(

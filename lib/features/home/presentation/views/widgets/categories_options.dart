@@ -23,10 +23,10 @@ class CategoriesOptions extends StatelessWidget {
               onCategoryChanged(1);
             },
             text: 'Chats',
-            bgColor:
-                selectedCategory == 1 ? ColorsManager.mainGreen : Colors.white,
-            textColor:
-                selectedCategory == 1 ? Colors.white : ColorsManager.mainGreen,
+            bgColor: selectedCategory == 1
+                ? ColorsManager.brandDefault
+                : ColorsManager.neutralDark,
+            textColor: Colors.white,
           ),
           const SizedBox(width: 8),
           CategoriesItem(
@@ -34,10 +34,10 @@ class CategoriesOptions extends StatelessWidget {
               onCategoryChanged(2);
             },
             text: 'Groups',
-            bgColor:
-                selectedCategory == 2 ? ColorsManager.mainGreen : Colors.white,
-            textColor:
-                selectedCategory == 2 ? Colors.white : ColorsManager.mainGreen,
+            bgColor: selectedCategory == 2
+                ? ColorsManager.brandDefault
+                : ColorsManager.neutralDark,
+            textColor: Colors.white,
           ),
         ],
       ),

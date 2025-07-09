@@ -6,7 +6,8 @@ abstract class ChatRepo {
   Stream<List<MessageModel>> getMessages(
       {required String userID, required String otherUserID});
 
-  Future<void> sendGroupMessage({required groupChatId, required message});
+  Future<void> sendGroupMessage(
+      {required String groupChatId, required String message});
 
-  Stream<List<MessageModel>> getGroupMessages({required groupChatId});
+  Stream<List<MessageModel>> getGroupMessages({required String groupChatId});
 }

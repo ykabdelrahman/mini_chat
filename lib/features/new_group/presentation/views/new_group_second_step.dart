@@ -26,11 +26,8 @@ class NewGroupSecondStep extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'New Group',
-          style: Styles.textStyle20.copyWith(color: ColorsManager.textGrey),
+          style: Styles.textStyle20.copyWith(color: ColorsManager.offWhite),
         ),
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        backgroundColor: Colors.white,
         leading: InkWell(
           onTap: () => context.pop(),
           child: const Icon(Icons.arrow_back_rounded),
@@ -61,7 +58,7 @@ class NewGroupSecondStep extends StatelessWidget {
             context.read<NewGroupCubit>().createGroup(group: group);
           }
         },
-        backgroundColor: ColorsManager.mainGreen,
+        backgroundColor: ColorsManager.brandDefault,
         child: const Icon(Icons.check, color: Colors.white),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/routes/app_router.dart';
+import 'core/themes/app_themes.dart';
 import 'core/utils/di.dart';
 import 'features/home/data/repos/groups_repo.dart';
 import 'features/home/data/repos/home_repo.dart';
@@ -23,9 +24,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-        ),
+        theme: AppThemes.darkTheme,
         routerConfig: AppRouter.router,
       ),
     );
