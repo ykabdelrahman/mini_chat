@@ -25,7 +25,7 @@ class MessageModel {
     };
   }
 
-  factory MessageModel.fromJson(jsonData) {
+  factory MessageModel.fromJson(Map<String, dynamic> jsonData) {
     return MessageModel(
       message: jsonData['message'],
       senderUid: jsonData['senderUid'],

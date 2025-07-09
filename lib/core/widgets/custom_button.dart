@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: bgColor ?? ColorsManager.mainGreen,
+      color: bgColor ?? ColorsManager.brandDefault,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         borderRadius: BorderRadius.circular(10),

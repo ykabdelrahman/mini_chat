@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mini_chat/core/utils/constants.dart';
 import 'package:mini_chat/features/home/presentation/views/bottom_nav_bar.dart';
 import 'package:mini_chat/features/new_group/presentation/views/new_group_view.dart';
 import 'package:mini_chat/features/profile/presentation/views/profile_view.dart';
@@ -15,7 +16,6 @@ import '../../features/new_group/data/repos/new_group_repo.dart';
 import '../../features/new_group/presentation/view_model/new_group/new_group_cubit.dart';
 import '../../features/new_group/presentation/views/new_group_second_step.dart';
 import '../../features/onboarding/presentation/views/onboarding_view.dart';
-import '../../features/onboarding/presentation/views/splash_view.dart';
 import '../../features/profile/presentation/views/settings_view.dart';
 import '../func/transition_page.dart';
 import '../utils/di.dart';
@@ -23,11 +23,8 @@ import 'routes.dart';
 
 abstract class AppRouter {
   static final router = GoRouter(
+    initialLocation: isLoggedIn ? Routes.bottomNavBar : Routes.onboarding,
     routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const SplashView(),
-      ),
       GoRoute(
         path: Routes.onboarding,
         pageBuilder: (context, state) => buildPageWithDefaultTransition(

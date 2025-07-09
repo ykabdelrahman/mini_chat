@@ -19,13 +19,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title!,
-        style: Styles.textStyle20.copyWith(color: ColorsManager.textGrey),
+        style: Styles.textStyle20.copyWith(color: ColorsManager.offWhite),
       ),
       leading: leading,
       centerTitle: centerTitle,
-      elevation: 0,
-      scrolledUnderElevation: 0,
-      backgroundColor: Colors.white,
       actions: actions,
     );
   }

@@ -20,7 +20,7 @@ class ChatTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: ColorsManager.neutralDark,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
@@ -30,14 +30,14 @@ class ChatTextField extends StatelessWidget {
               controller: controller,
               onSubmitted: onSubmitted,
               focusNode: focusNode,
-              cursorColor: ColorsManager.mainGreen,
+              cursorColor: ColorsManager.brandDefault,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.all(16),
                 suffixIcon: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
                   child: CircleAvatar(
-                    backgroundColor: ColorsManager.mainGreen,
+                    backgroundColor: ColorsManager.brandDefault,
                     child: InkWell(
                       onTap: onTapIcon,
                       child: const Icon(
@@ -52,7 +52,7 @@ class ChatTextField extends StatelessWidget {
                 border: borderStyle(),
                 hintText: 'Message',
                 hintStyle: Styles.textStyle16.copyWith(
-                  color: ColorsManager.textGrey.withValues(alpha: .6),
+                  color: ColorsManager.offWhite.withValues(alpha: .6),
                 ),
               ),
             ),
@@ -64,10 +64,7 @@ class ChatTextField extends StatelessWidget {
 
   OutlineInputBorder borderStyle() {
     return OutlineInputBorder(
-      borderSide: const BorderSide(
-        color: ColorsManager.mainGreen,
-        width: 2,
-      ),
+      borderSide: BorderSide.none,
       borderRadius: BorderRadius.circular(15),
     );
   }

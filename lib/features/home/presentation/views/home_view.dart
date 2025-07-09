@@ -52,7 +52,7 @@ class _HomeViewState extends State<HomeView> {
             right: 20,
             child: FloatingActionButton(
               onPressed: () {},
-              backgroundColor: ColorsManager.mainGreen,
+              backgroundColor: ColorsManager.brandDefault,
               child: const Icon(Icons.message, color: Colors.white),
             ),
           ),

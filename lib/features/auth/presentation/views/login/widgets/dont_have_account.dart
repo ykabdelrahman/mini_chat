@@ -17,13 +17,13 @@ class DontHaveAccount extends StatelessWidget {
           TextSpan(
             text: 'Don\'t have an account?',
             style: Styles.textStyle14.copyWith(
-              color: ColorsManager.textGrey.withValues(alpha: .6),
+              color: ColorsManager.offWhite.withValues(alpha: .6),
             ),
           ),
           TextSpan(
             text: ' Sign Up',
             style: Styles.textStyle14.copyWith(
-              color: ColorsManager.mainGreen,
+              color: ColorsManager.brandDefault,
               fontWeight: FontWeight.w700,
             ),
             recognizer: TapGestureRecognizer()

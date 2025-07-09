@@ -29,7 +29,7 @@ class ChatBubble extends StatelessWidget {
                 padding: EdgeInsets.only(right: 8),
                 child: CircleAvatar(
                   radius: 20,
-                  backgroundColor: ColorsManager.veryLightGrey,
+                  backgroundColor: ColorsManager.neutralDark,
                   backgroundImage: AssetImage(AssetsData.logo),
                 ),
               ),
@@ -46,8 +46,8 @@ class ChatBubble extends StatelessWidget {
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: isSender
-                          ? ColorsManager.mainGreen
-                          : ColorsManager.veryLightGrey,
+                          ? ColorsManager.brandDefault
+                          : ColorsManager.neutralDark,
                       borderRadius: isSender
                           ? const BorderRadius.only(
                               topLeft: Radius.circular(26),
@@ -77,7 +77,7 @@ class ChatBubble extends StatelessWidget {
                 padding: EdgeInsets.only(left: 8),
                 child: CircleAvatar(
                   radius: 20,
-                  backgroundColor: ColorsManager.veryLightGrey,
+                  backgroundColor: ColorsManager.neutralDark,
                   backgroundImage: AssetImage(AssetsData.logo),
                 ),
               ),

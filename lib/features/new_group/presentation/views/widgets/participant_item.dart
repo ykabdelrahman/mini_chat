@@ -13,7 +13,7 @@ class ParticipantItem extends StatelessWidget {
       children: [
         const CircleAvatar(
           radius: 30,
-          backgroundColor: ColorsManager.veryLightGrey,
+          backgroundColor: ColorsManager.neutralDark,
           backgroundImage: AssetImage(AssetsData.logo),
         ),
         const SizedBox(width: 16),
@@ -32,7 +32,7 @@ class ParticipantItem extends StatelessWidget {
               user.phoneNumber,
               style: Styles.textStyle14.copyWith(
                 fontWeight: FontWeight.w600,
-                color: ColorsManager.textGrey.withValues(alpha: .5),
+                color: ColorsManager.offWhite.withValues(alpha: .5),
               ),
               overflow: TextOverflow.ellipsis,
             ),

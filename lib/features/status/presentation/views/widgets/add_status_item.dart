@@ -18,7 +18,7 @@ class AddStatusItem extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 30,
-                  backgroundColor: ColorsManager.veryLightGrey,
+                  backgroundColor: ColorsManager.neutralDark,
                   backgroundImage: AssetImage(AssetsData.logo),
                 ),
                 Positioned(
@@ -31,14 +31,14 @@ class AddStatusItem extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.white,
                       border: Border.all(
-                        color: ColorsManager.mainGreen,
+                        color: ColorsManager.brandDefault,
                         width: 2,
                       ),
                     ),
                     child: const Center(
                       child: Icon(
                         Icons.add,
-                        color: ColorsManager.mainGreen,
+                        color: ColorsManager.brandDefault,
                         size: 15,
                       ),
                     ),
@@ -62,7 +62,7 @@ class AddStatusItem extends StatelessWidget {
                   'Tap to add status update',
                   style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: ColorsManager.textGrey.withValues(alpha: .5),
+                    color: ColorsManager.offWhite.withValues(alpha: .5),
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),

@@ -42,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
               },
               child: Icon(
                 isObscureText ? Icons.visibility_off : Icons.visibility,
-                color: ColorsManager.textGrey.withValues(alpha: .5),
+                color: ColorsManager.offWhite.withValues(alpha: .5),
               ),
             ),
           ),
@@ -52,7 +52,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Text(
               'Forgot Password?',
               style: Styles.textStyle12.copyWith(
-                color: ColorsManager.mainGreen,
+                color: ColorsManager.brandDefault,
               ),
             ),
           ),

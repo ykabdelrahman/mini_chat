@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/themes/colors_manager.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../view_model/search_cubit/search_cubit.dart';
 import 'search_results_list.dart';
@@ -13,7 +14,7 @@ class SearchView extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
+        backgroundColor: ColorsManager.bgColor,
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
