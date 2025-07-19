@@ -1,16 +1,68 @@
-# mini_chat
+## Chateo
+A real-time chat application enabling one-on-one messaging using Firebase as the backend.
 
-A new Flutter project.
 
-## Getting Started
+## Preview
 
-This project is a starting point for a Flutter application.
+<img width="2232" height="1535" alt="Group 11" src="https://github.com/user-attachments/assets/8a5c30dc-73a2-45ba-aa63-2666e62eb3cc" />
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Getting Started
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run this project on your local machine:
+
+```bash
+# Clone the repo
+git clone https://github.com/ykabdelrahman/chateo.git
+cd chateo
+
+# Get dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+
+## App Architecture and Folder Structure
+
+#### Folder Structure
+
+```
+lib 
+ ├── src
+    ├── core
+    │   ├── data
+    │   ├── utils
+    │   ├── func
+    │   ├── widgets
+    │   ├── themes
+    │   ├── errors
+    │   ├── routes
+    │   ├── translations
+    ├── features
+    │   ├── home
+    │   ├── auth
+    │   ├── calls
+    │   ├── new_group
+    │   ├── chat
+    │   ├── onboarding
+    │   ├── status
+    │   ├── search
+    │   ├── profile
+    ├── firebase.options.dart
+    ├── app.dart
+    ├── main.dart
+```
+
+## 🧪 Running Tests
+
+```
+$ flutter test
+```
+
+## 🤝 Contributions
+Contributions are welcome! Please **fork the repository** and submit a **pull request** for any improvements or new features.
+
+## 📜 License
+This project is licensed under the **MIT License**.
