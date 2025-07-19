@@ -37,9 +37,7 @@ lib
     │   ├── func
     │   ├── widgets
     │   ├── themes
-    │   ├── errors
     │   ├── routes
-    │   ├── translations
     ├── features
     │   ├── home
     │   ├── auth
